@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <H v-for="item in items" v-bind:h="item"></H>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script>
+    //使用component定义组件   类似结构体 只需要导入就可以显示结构体的内容
+    Vue.component("H",{
+        props: ['h'],
+        template: "<li>{{h}}</li>"
+    });
+    new Vue({
+        el:"#app" ,
+        data: {
+            items: ["java","linux","vue"]
+        }
+    });
+</script>
+</body>
+</html>

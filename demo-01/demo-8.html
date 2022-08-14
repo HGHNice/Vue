@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="vue">
+    <p>nowtime:{{ currentTime1() }}</p>
+    <p>nowtime:{{ currentTime}}</p>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#vue",
+        data: {
+            message: "hello,H"
+        },
+        methods: {
+            currentTime1: function () {
+                return Date.now();
+            }
+        },
+        computed: { //计算属性: methods， computed方法名不能重名,重名之后,只会调用methods的方法
+            currentTime: function () {  //使用computed标签后 相当于得到一个属性 如果同一个方法体中的值不被刷新 则一直为初始值，一被刷新方法体中的如日期这种动态的也会随之改变。
+                return Date.now();
+            }
+        }
+
+    });
+</script>
+</body>
+</html>
